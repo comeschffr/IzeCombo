@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+	<title>Try The Most Advanced AI</title>
+</head>
+<body class="d-flex justify-content-center" style="background-color: #4f4f4f;">
+	
+	<div class="card w-50 mt-5 p-4" style="background-color: #f7f7f7;">
+	  
+	  <h1 class="display-4 mx-2">Let's demystify AI.</h1>
+	  <p class="lead mx-2 mt-3">Enter your name below and let the magic operate</p>
+	  
+	  <form method="POST" action="" class="d-flex justify-content-start m-2">
+		{{ form.hidden_tag() }}
+		<div class="form-group w-50">
+		  {% if form.name.errors %}
+			{{ form.name(class="form-control form-control-lg is-invalid")}}
+			  <div class="invalid-feedback">
+				{% for error in form.name.errors %}
+				  <span>{{ error }}</span>
+				{% endfor %}
+			  </div>
+		  {% else %}
+			{{ form.name(class="form-control form-control-lg") }}
+		  {% endif %}
+		</div>
+		<div class="form-group ml-3">
+		  {{ form.submit(class="btn btn-outline-dark btn-lg") }}
+		</div>
+	  </form>
+	  
+	  {% if result %}
+	  	<p class="lead mt-3 mx-2">After more than 100 milion data processed, this 200% accurate AI guesses<br>you are a {{ result['age'] }}-year-old {{ result['country'] }} {{ result['gender'] }}. Right?</p>
+	  	<p class="lead mx-2">Hillary Clinton used that software during the 2016 presidential elections.<br>You now know how she lost.</p>
+	  {% endif %}
+	  
+	  <hr class="my-4">
+	  
+	  <div class="my-2">
+	  	<div class="text-center">Learn more about these three genius APIs</div>
+	  	<div class="d-flex justify-content-center align-items-center">
+	  	  <a class="btn m-2 btn-sm" style="background-color:#00ca6d;color:white" href="https://nationalize.io" role="button">Nationalize</a>
+	  	  <a class="btn m-2 btn-sm" style="background-color:#fd004e;color:white" href="https://agify.io" role="button">Agify</a>
+	  	  <a class="btn m-2 btn-sm" style="background-color:#ff7500;color:white" href="https://genderize.io" role="button">Genderize</a>
+	  	</div>
+	  </div>
+
+	</div>
+</body>
+</html>
